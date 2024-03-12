@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SimpleHTTP.Models;
+using SimpleHTTP.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +32,9 @@ namespace SimpleHTTP.Services
                     response.EnsureSuccessStatusCode();
 
                     var jsonString = await response.Content.ReadAsStringAsync();
-                    var products = JsonConvert.DeserializeObject<IEnumerable<Product>>(jsonString);
-
-                    return products;
+                    var data = JsonConvert.DeserializeObject<ProductResultViewModel>(jsonString);
+                    
+                    return null;
                 }
                 catch (Exception ex)
                 {

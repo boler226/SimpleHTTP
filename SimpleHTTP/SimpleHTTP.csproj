@@ -434,6 +434,8 @@
     <Compile Include="Interfaces\IProductRepository.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\ProductItemViewModel.cs" />
+    <Compile Include="ViewModel\ProductResultViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

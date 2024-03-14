@@ -11,7 +11,7 @@ namespace SimpleHTTP.Server
 {
     public class DistributorProduct : ObservableProduct // Передбачається, що ви маєте базовий клас для реалізації INotifyPropertyChanged
     {
-        private readonly ApiClient _apiClient;
+        public readonly ApiClient _apiClient;
 
         public DistributorProduct(ApiClient apiClient)
         {
@@ -40,6 +40,8 @@ namespace SimpleHTTP.Server
 
             }
         }
+
+        
 
         private void UpdateProductsFromJson(string json)
         {

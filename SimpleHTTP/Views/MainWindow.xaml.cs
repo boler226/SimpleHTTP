@@ -1,4 +1,5 @@
-﻿using SimpleHTTP.Models;
+﻿using SimpleHTTP.Views;
+using SimpleHTTP.Models;
 using SimpleHTTP.Server;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,8 @@ namespace SimpleHTTP.Accounts
 
         private void UserButton_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow login = new LoginWindow(_distributor);
+            login.ShowDialog(); 
         }
         private void CartButton_Click(object sender, RoutedEventArgs e)
         {

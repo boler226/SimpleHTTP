@@ -36,7 +36,7 @@
             <Setter Property="Width" Value="700"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="#BDBDBD"/>
@@ -63,13 +63,15 @@
 
 
         <!-- Бічне меню -->
-        <Grid Grid.Column="0" Background="#4CAF50" Width="150" Grid.RowSpan="2">
+        <Grid Grid.Column="0" Grid.Row="0" Background="#4CAF50" Width="150" Grid.RowSpan="2">
             <StackPanel>
                 <Button Content="Користувач" Style="{StaticResource SideMenuButtonStyle}" Click="UserButton_Click"/>
                 <Button Content="Кошик" Style="{StaticResource SideMenuButtonStyle}" Click="CartButton_Click"/>
                 <Button Content="Вихід" Style="{StaticResource SideMenuButtonStyle}" Click="ExitButton_Click"/>
             </StackPanel>
         </Grid>
+
+     
 
         <!-- Картки продуктів -->
         <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto" Grid.RowSpan="2">

@@ -1,4 +1,5 @@
 ﻿using SimpleHTTP.Models;
+using SimpleHTTP.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace SimpleHTTP.Interfaces
 {
     public interface IProductRepository
     {
-        IEnumerable<ProductViewModel> GetProducts();
+        IEnumerable<ProductResultViewModel> GetProducts();
     }
 }

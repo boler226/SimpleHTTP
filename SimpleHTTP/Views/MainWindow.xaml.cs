@@ -1,5 +1,5 @@
 ﻿using SimpleHTTP.Models;
-using System;
+using SimpleHTTP.Server;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,18 +20,32 @@ namespace SimpleHTTP.Accounts
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ProductViewModel _viewModel;
+        private readonly DistributorProduct _distributor;
         public MainWindow()
         {
             InitializeComponent();
-            _viewModel = new ProductViewModel(new Services.ApiClient("http://localhost:5255"));
-            DataContext = _viewModel;
+            _distributor = new DistributorProduct(new Services.ApiClient("http://localhost:5255"));
+            DataContext = _distributor;
             Loaded += MainWindow_Loaded;
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            await _viewModel.LoadProductsAsync();
+            await _distributor.LoadProductsAsync();
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+        
+        }
+
+        private void UserButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void CartButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

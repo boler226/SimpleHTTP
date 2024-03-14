@@ -21,7 +21,7 @@ namespace SimpleHTTP.Services
             _baseUrl = baseUrl;
         }
 
-        public async Task<IEnumerable<Product>> GetProductsAsync()
+        public async Task<ProductResultViewModel> GetProductsAsync()
         {
             using (var client = new HttpClient())
             {
@@ -34,7 +34,7 @@ namespace SimpleHTTP.Services
                     var jsonString = await response.Content.ReadAsStringAsync();
                     var data = JsonConvert.DeserializeObject<ProductResultViewModel>(jsonString);
                     
-                    return null;
+                    return data;
                 }
                 catch (Exception ex)
                 {

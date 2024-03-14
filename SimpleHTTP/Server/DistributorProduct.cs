@@ -7,29 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleHTTP.Models
+namespace SimpleHTTP.Server
 {
-    public class ProductViewModel : BaseViewModel // Передбачається, що ви маєте базовий клас для реалізації INotifyPropertyChanged
+    public class DistributorProduct : ObservableProduct // Передбачається, що ви маєте базовий клас для реалізації INotifyPropertyChanged
     {
         private readonly ApiClient _apiClient;
 
-        public ProductViewModel(ApiClient apiClient)
+        public DistributorProduct(ApiClient apiClient)
         {
             _apiClient = apiClient;
-            Products = new ObservableCollection<Product>();
+            Products = new ObservableCollection<ProductItemViewModel>();
         }
 
-        public ObservableCollection<Product> Products { get; private set; }
+        public ObservableCollection<ProductItemViewModel> Products { get; private set; }
 
         public async Task LoadProductsAsync()
         {
             try
             {
                 var products = await _apiClient.GetProductsAsync();
-                if (products != null)
+                if (products != null && products.List != null)
                 {
                     Products.Clear();
-                    foreach (var product in products)
+                    foreach (var product in products.List)
                     {
                         Products.Add(product);
                     }

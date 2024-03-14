@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
-namespace SimpleHTTP.ViewModel
+namespace SimpleHTTP.Server
 {
-    public class BaseViewModel : INotifyPropertyChanged // дозволяє підписуватися на події зміни властивостей і відображати ці зміни в інтерфейсі користувача.
+    public class ObservableProduct : INotifyPropertyChanged // дозволяє підписуватися на події зміни властивостей і відображати ці зміни в інтерфейсі користувача.
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

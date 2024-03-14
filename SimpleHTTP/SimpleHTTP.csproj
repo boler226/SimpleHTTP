@@ -449,6 +449,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\ImageWorker.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
     <Compile Include="Models\Users\RegisterViewModel.cs" />
     <Compile Include="Server\ObservableProduct.cs" />

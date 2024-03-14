@@ -12,14 +12,13 @@ namespace SimpleHTTP.Server
     public class DistributorProduct : ObservableProduct // Передбачається, що ви маєте базовий клас для реалізації INotifyPropertyChanged
     {
         public readonly ApiClient _apiClient;
+        public ObservableCollection<ProductItemViewModel> Products { get; private set; }
 
         public DistributorProduct(ApiClient apiClient)
         {
             _apiClient = apiClient;
             Products = new ObservableCollection<ProductItemViewModel>();
         }
-
-        public ObservableCollection<ProductItemViewModel> Products { get; private set; }
 
         public async Task LoadProductsAsync()
         {

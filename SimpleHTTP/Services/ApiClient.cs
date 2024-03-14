@@ -2,6 +2,7 @@
 using SimpleHTTP.Models;
 using SimpleHTTP.Models.Users;
 using SimpleHTTP.ViewModel;
+using SimpleHTTP.Helpers;
 using SimpleHTTP.Views;
 using System;
 using System.Collections.Generic;
@@ -9,16 +10,19 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace SimpleHTTP.Services
 {
     public class ApiClient
     {
         private readonly string _baseUrl;
+        private ImageWorker _worker;
 
         public ApiClient(string baseUrl)
         {
             _baseUrl = baseUrl;
+            _worker = new ImageWorker();
         }
 
         public async Task<ProductResultViewModel> GetProductsAsync()
@@ -34,6 +38,17 @@ namespace SimpleHTTP.Services
                     var jsonString = await response.Content.ReadAsStringAsync();
                     var data = JsonConvert.DeserializeObject<ProductResultViewModel>(jsonString);
                     
+                    string baseImageUrl = "http://localhost:5255/Images/";
+
+                    foreach (var product in data.List)
+                    {
+                        if (product.Images != null && product.Images.Count > 0)
+                        {
+                            string imageUrl = baseImageUrl + product.Images[0];
+                            product.BitmapImage = await _worker.DownloadImageAsync(imageUrl);
+                        }
+                    }
+
                     return data;
                 }
                 catch (Exception ex)

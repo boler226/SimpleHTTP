@@ -86,7 +86,7 @@
                         <DataTemplate>
                             <Border BorderBrush="#BDBDBD" BorderThickness="1" Margin="10" Padding="10" CornerRadius="5">
                                 <StackPanel>
-                                    <Image Source="{Binding Images[0]}" Width="200" Height="200" Stretch="UniformToFill"/>
+                                    <Image Source="{Binding BitmapImage}" Width="200" Height="200" Stretch="UniformToFill"/>
                                     <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" Margin="5"/>
                                     <TextBlock Text="{Binding Price, StringFormat={}{0:C}}" Margin="5"/>
                                 </StackPanel>
